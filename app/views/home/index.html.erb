@@ -1,0 +1,41 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>kind</th> 
+      <th>age</th>
+    </tr>
+  </thead>    
+      
+  <tbody>
+    <% @poppies.each do |poppies| %>
+    <tr>
+      <td><%= poppies.name %></td>
+      <td><%= poppies.kind %></td>
+      <td><%= poppies.age %></td>
+    </tr>
+    <% end %>
+  </tbody>
+      
+  
+</table>
+
+<%= form_tag("/home", method: "get") do  %>
+<select class="form-control" name="search" id="search">
+    <option disabled selected value>종류</option>
+  <% @categories.each do |categories| %>
+    <option value="<%= categories %>"><%= categories %></option>
+  <% end %>
+</select>
+<select class="form-control" name="age" id="age">
+    <option disabled selected value>나이</option>
+  <% @age.each do |age| %>
+    <option value="<%= age %>"><%= age %></option>
+  <% end %>
+</select>
+<%= submit_tag("Search") %>
+<% end %>
+
+
+
+
